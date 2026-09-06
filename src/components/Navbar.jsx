@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo1.png'
+import logo from '../assets/logo.png'
 import { useAuth } from '../context/AuthContext'
 import { DISCORD_INVITE_URL } from '../data/socialLinks'
 import DevelopmentBanner from './DevelopmentBanner'
