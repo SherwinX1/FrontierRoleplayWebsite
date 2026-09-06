@@ -50,6 +50,16 @@ function BarnIcon(props) {
   )
 }
 
+function MedicalBagIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
+      <path strokeLinecap="round" d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path strokeLinecap="round" d="M12 11v6M9 14h6" />
+    </svg>
+  )
+}
+
 function PlusIcon(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props}>
@@ -84,6 +94,11 @@ const ACTIVITIES = [
     title: 'Ranches',
     description: 'Raise livestock, work the land, and build a homestead to call your own.',
     Icon: BarnIcon,
+  },
+  {
+    title: 'Doctors',
+    description: 'Patch up the wounded, run the clinic, and keep the folk of Calhoun alive.',
+    Icon: MedicalBagIcon,
   },
   {
     title: 'And More',
