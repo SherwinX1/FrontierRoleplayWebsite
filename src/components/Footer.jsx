@@ -11,10 +11,7 @@ const EXPLORE_LINKS = [
   { label: 'Activities', href: '/#activities' },
 ]
 
-const COMMUNITY_LINKS = [
-  { label: 'Join our Discord', href: DISCORD_INVITE_URL, external: true },
-  { label: 'Sign in with Steam', href: '/auth/steam' },
-]
+const COMMUNITY_LINKS = [{ label: 'Join our Discord', href: DISCORD_INVITE_URL, external: true }]
 
 function FooterColumn({ title, links }) {
   return (

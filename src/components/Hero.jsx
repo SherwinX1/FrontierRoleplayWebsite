@@ -49,9 +49,9 @@ function Hero() {
           className="mt-5 max-w-md animate-fade-in-up text-sm leading-relaxed text-slate-300 sm:text-base"
           style={{ animationDelay: '150ms' }}
         >
-          An immersive 1890s Wild West roleplay experience. Build your life on the frontier —
-          become a lawman, outlaw, rancher, gunslinger, or businessman. Your story, your
-          choices, your legacy.
+          An immersive 1890s Wild West roleplay experience where you build your life on the
+          frontier as a lawman, outlaw, rancher, gunslinger, or businessman, with your story,
+          your choices, your legacy.
         </p>
 
         <div

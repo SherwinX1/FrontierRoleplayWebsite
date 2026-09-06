@@ -71,18 +71,10 @@ function Navbar() {
             ))}
           </ul>
 
-          {!loading && (
+          {/* Steam sign-in is temporarily disabled — only render this once a session exists. */}
+          {!loading && user && (
             <div className="hidden lg:flex lg:items-center">
-              {user ? (
-                <UserMenu user={user} onLogout={logout} />
-              ) : (
-                <a
-                  href="/auth/steam"
-                  className="inline-flex items-center rounded-full border border-white/70 px-5 py-2 text-xs font-bold uppercase tracking-widest text-white transition hover:scale-105 hover:border-amber-400 hover:text-amber-400"
-                >
-                  Sign in
-                </a>
-              )}
+              <UserMenu user={user} onLogout={logout} />
             </div>
           )}
 
@@ -142,7 +134,8 @@ function Navbar() {
             }`}
             style={{ transitionDelay: open ? '600ms' : '0ms' }}
           >
-            {user ? (
+            {/* Steam sign-in is temporarily disabled — only render this once a session exists. */}
+            {user && (
               <div className="flex flex-col items-center gap-4">
                 <div className="flex items-center gap-3">
                   <img src={user.avatar} alt="" className="h-10 w-10 rounded-full border border-white/20" />
@@ -158,14 +151,6 @@ function Navbar() {
                   Sign Out
                 </button>
               </div>
-            ) : (
-              <a
-                href="/auth/steam"
-                onClick={() => setOpen(false)}
-                className="rounded-full border border-white bg-white/5 px-8 py-3 text-sm font-bold uppercase tracking-widest text-white transition hover:border-amber-400 hover:text-amber-400"
-              >
-                Sign in
-              </a>
             )}
           </div>
         </div>
