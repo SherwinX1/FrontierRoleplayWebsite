@@ -7,7 +7,7 @@ import DevelopmentBanner from './DevelopmentBanner'
 import UserMenu from './UserMenu'
 
 const NAV_LINKS = [
-  { label: 'Home', to: '/' },
+  { label: 'Home', to: '/', reload: true },
   { label: 'Rules', to: '/rules' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'FRP Wiki', to: '/wiki' },
@@ -15,11 +15,19 @@ const NAV_LINKS = [
   { label: 'Support', to: '/support' },
 ]
 
-// Renders as an in-app <Link> for internal routes, or a real <a> (new tab) for external ones.
+// Renders as an in-app <Link> for internal routes, a real <a> (new tab) for external ones,
+// or a plain <a> for links that should force a full page reload (e.g. Home).
 function NavLink({ link, className, onClick, children }) {
   if (link.external) {
     return (
       <a href={link.href} target="_blank" rel="noopener noreferrer" onClick={onClick} className={className}>
+        {children}
+      </a>
+    )
+  }
+  if (link.reload) {
+    return (
+      <a href={link.to} onClick={onClick} className={className}>
         {children}
       </a>
     )
@@ -48,9 +56,9 @@ function Navbar() {
       <header className="fixed inset-x-0 top-0 z-50 animate-fade-in-down border-b border-white/10 bg-black/40 backdrop-blur-md">
         <DevelopmentBanner />
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-          <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
+          <a href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
             <img src={logo} alt="Frontier Roleplay" className="h-10 w-auto" />
-          </Link>
+          </a>
 
           <ul className="hidden items-center gap-6 text-sm font-semibold tracking-wide text-slate-200 lg:flex xl:gap-8">
             {NAV_LINKS.map((link) => (
