@@ -39,6 +39,24 @@ const JWT_SECRET = SESSION_SECRET ?? 'dev-only-insecure-secret'
 const COOKIE_NAME = 'frp_session'
 const isProduction = NODE_ENV === 'production'
 
+// passport-steam fetches the profile itself via the `steam-web` package, which hardcodes
+// a plain-HTTP (port 80) request to Steam's API — Steam now rejects those with a 403,
+// regardless of how valid the key is. `profile: false` skips that broken call, and we
+// fetch the same data ourselves over HTTPS below instead.
+async function fetchSteamProfile(steamId) {
+  const url = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${STEAM_API_KEY}&steamids=${steamId}&format=json`
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`Steam API responded with ${res.status}`)
+  const player = (await res.json())?.response?.players?.[0]
+  if (!player) throw new Error("Steam API returned no player data")
+
+  return {
+    id: player.steamid,
+    displayName: player.personaname,
+    photos: [{ value: player.avatar }, { value: player.avatarmedium }, { value: player.avatarfull }],
+  }
+}
+
 passport.use(
   new SteamStrategy(
     {
@@ -49,10 +67,15 @@ passport.use(
       // association in memory between the two request legs — required on serverless,
       // where nothing guarantees the same instance handles both of them.
       stateless: true,
+      profile: false,
     },
-    // Steam has already verified the login by the time this runs — `profile` is the
-    // public Steam profile (steamID, display name, avatar, etc).
-    (identifier, profile, done) => done(null, profile),
+    // Steam has already verified the login by the time this runs — `identifier` is the
+    // claimed OpenID URL, e.g. https://steamcommunity.com/openid/id/<steamID64>.
+    (identifier, _profile, done) => {
+      const steamId = identifier.match(/\/id\/(\d+)$/)?.[1]
+      if (!steamId) return done(new Error('Could not parse Steam ID from identifier'))
+      fetchSteamProfile(steamId).then((profile) => done(null, profile)).catch(done)
+    },
   ),
 )
 
