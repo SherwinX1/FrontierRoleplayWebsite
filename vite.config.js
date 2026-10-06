@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    // Forwards Steam login requests to the local auth server (see server/index.js)
+    // Forwards /auth requests to the local auth server (see server/index.js)
     // so the browser sees everything as same-origin — no CORS/cookie headaches.
     proxy: {
       '/auth': {

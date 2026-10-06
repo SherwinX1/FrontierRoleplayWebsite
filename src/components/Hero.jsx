@@ -4,13 +4,28 @@ import slide2 from '../assets/image-2.png'
 import slide3 from '../assets/image-3.png'
 import slide4 from '../assets/image-4.png'
 import slide5 from '../assets/image-5.jpeg'
-import { SOCIAL_LINKS } from '../data/socialLinks'
+import { CFX_JOIN_URL, DISCORD_INVITE_URL, SOCIAL_LINKS } from '../data/socialLinks'
+import { DiscordIcon } from './icons/SocialIcons'
+import { useDiscordStats } from '../hooks/useDiscordStats'
+import { useServerStats } from '../hooks/useServerStats'
+
+const STAT_LINK_CLASS = 'inline-flex items-center gap-1.5 transition hover:text-amber-400'
+
+function PlayersIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7.5 0a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM9 13c-4 0-7 2-7 4.5V20h14v-2.5C16 15 13 13 9 13Zm7.5 0c-.5 0-1 .04-1.47.12A5.6 5.6 0 0 1 18 17.5V20h4v-2.5c0-2.5-2.5-4.5-5.5-4.5Z" />
+    </svg>
+  )
+}
 
 const SLIDES = [slide1, slide2, slide3, slide4, slide5]
 const SLIDE_DURATION = 6000
 
 function Hero() {
   const [slideIndex, setSlideIndex] = useState(0)
+  const discordStats = useDiscordStats()
+  const serverStats = useServerStats()
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -71,6 +86,42 @@ function Hero() {
             </a>
           ))}
         </div>
+
+        {(serverStats || discordStats) && (
+          <div className="mt-5 flex animate-fade-in-up items-center justify-center gap-3 text-xs text-slate-400 sm:text-sm">
+            {serverStats && (
+              <a
+                href={CFX_JOIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Players in-game — click to join"
+                aria-label={`${serverStats.players} of ${serverStats.maxPlayers} players in-game`}
+                className={STAT_LINK_CLASS}
+              >
+                <PlayersIcon className="h-4 w-4 text-green-400" />
+                <span className="font-semibold text-slate-200">
+                  {serverStats.players}/{serverStats.maxPlayers}
+                </span>
+              </a>
+            )}
+
+            {serverStats && discordStats && <span className="text-slate-600">·</span>}
+
+            {discordStats && (
+              <a
+                href={DISCORD_INVITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Discord members"
+                aria-label={`${discordStats.members.toLocaleString()} Discord members`}
+                className={STAT_LINK_CLASS}
+              >
+                <DiscordIcon className="h-4 w-4" />
+                <span className="font-semibold text-slate-200">{discordStats.members.toLocaleString()}</span>
+              </a>
+            )}
+          </div>
+        )}
       </div>
 
       <a

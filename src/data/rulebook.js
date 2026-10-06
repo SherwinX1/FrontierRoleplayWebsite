@@ -210,11 +210,76 @@ export const RULEBOOK_SECTIONS = [
   },
   {
     number: 'IV',
+    id: 'permanent-death',
+    title: 'Permanent Death (Permadeath)',
+    intro:
+      'In the 1890 Wild West, every life is valuable, and every decision has consequences. Players are expected to prioritize realistic roleplay, respect life-threatening situations, and understand that statements such as "Patayin niyo na lang ako" may be treated as consent to Permanent Death under these rules.',
+    rules: [
+      {
+        number: 15,
+        title: 'Permanent Death Consent',
+        summary:
+          'The phrase "Patayin niyo na lang ako" or any similar statement expressing a willingness to die will be considered explicit consent for Permanent Death (Perma), provided it is clearly stated in character (IC) during an active roleplay situation.',
+        details: [
+          { type: 'p', text: 'Once the statement is made, the player may be held accountable for the consequences of that consent, subject to Admin review.' },
+          { type: 'p', text: 'Players must understand that statements expressing consent to death may result in the permanent loss of their character.' },
+          {
+            type: 'p',
+            text: 'Players are strictly prohibited from using such statements as a means to provoke others, manipulate roleplay situations, or avoid the consequences of their actions.',
+          },
+          { type: 'p', text: 'Admins reserve the right to review the context of the statement to determine whether it constitutes valid consent.' },
+        ],
+      },
+      {
+        number: 16,
+        title: 'No Value of Life (NVL)',
+        summary:
+          "All players are required to value their character's life and act realistically when faced with life-threatening situations, in accordance with the 1890 setting.",
+        details: [
+          { type: 'p', text: 'The following actions are considered violations of the No Value of Life (NVL) rule:' },
+          {
+            type: 'ul',
+            items: [
+              'Ignoring Threats: Refusing to comply when a weapon is pointed at your character under a credible and immediate threat to their life, without a reasonable roleplay justification.',
+              "Reckless Behavior: Deliberately putting your character's life at serious risk without a valid roleplay reason or realistic consideration of the consequences.",
+              'Fearless Roleplay: Acting without fear when facing overwhelming threats, such as being surrounded by armed outlaws or held at gunpoint.',
+              'Unrealistic Resistance: Attempting to fight, escape, or draw a weapon when your character is clearly outnumbered, overpowered, or in a situation where resistance would be unreasonable.',
+              'Disregarding Injuries: Continuing to fight, run, or engage in physically demanding activities despite serious injuries that would realistically prevent such actions.',
+              'Provoking Death: Deliberately provoking armed individuals into killing your character without a reasonable roleplay purpose.',
+            ],
+          },
+        ],
+      },
+      {
+        number: 17,
+        title: 'Enforcement and Penalties',
+        summary: 'Any violation of the Permanent Death and No Value of Life rules will be monitored and reviewed by the Admin Team.',
+        details: [
+          { type: 'p', text: 'Depending on the severity and frequency of the violation, penalties may include:' },
+          {
+            type: 'ul',
+            items: [
+              'Verbal or written warning',
+              'Temporary suspension',
+              'Character wipe or other character-related penalties, where applicable',
+              'Permanent ban for severe or repeated violations',
+            ],
+          },
+          {
+            type: 'p',
+            text: 'The Admin Team reserves the right to review situations involving consent, NVL, and Permanent Death to ensure fairness, realism, and stability within the city.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    number: 'V',
     id: 'combat-rules',
     title: 'Combat Rules',
     rules: [
       {
-        number: 15,
+        number: 18,
         title: 'Combat Should Have Context',
         summary: 'Violence should have a reason.',
         details: [
@@ -223,7 +288,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 16,
+        number: 19,
         title: 'No RDM',
         summary: 'Random Deathmatch is prohibited.',
         details: [
@@ -232,7 +297,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 17,
+        number: 20,
         title: 'No Baiting',
         summary: 'Do not intentionally provoke another player into committing violence simply so you can retaliate or gain an advantage.',
         details: [
@@ -250,7 +315,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 18,
+        number: 21,
         title: 'No Repeat Killing',
         summary: 'Do not repeatedly kill, attack, or target the same player without a meaningful reason.',
         details: [
@@ -259,7 +324,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 19,
+        number: 22,
         title: 'Shootout Etiquette',
         summary: 'Once a shootout begins, players should avoid turning it into an unrealistic combat simulation.',
         details: [
@@ -280,18 +345,18 @@ export const RULEBOOK_SECTIONS = [
     ],
   },
   {
-    number: 'V',
+    number: 'VI',
     id: 'property-and-business',
     title: 'Property & Business',
     rules: [
       {
-        number: 20,
+        number: 23,
         title: 'Property Exists to Create RP',
         summary: 'Owning a property or business should create opportunities for interaction.',
         details: [{ type: 'p', text: 'Businesses should not become private money generators that nobody interacts with.' }],
       },
       {
-        number: 21,
+        number: 24,
         title: 'Business Roleplay',
         summary: 'Business owners should encourage:',
         details: [
@@ -300,7 +365,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 22,
+        number: 25,
         title: 'No Asset Transfer Abuse',
         summary:
           'Do not transfer money, property, horses, weapons, businesses, or other valuable assets between characters simply to bypass restrictions, avoid consequences, or move wealth between characters.',
@@ -309,12 +374,12 @@ export const RULEBOOK_SECTIONS = [
     ],
   },
   {
-    number: 'VI',
+    number: 'VII',
     id: 'server-and-game-world-health',
     title: 'Server & Game World Health',
     rules: [
       {
-        number: 23,
+        number: 26,
         title: 'Protect the World',
         summary: 'Players should help maintain a believable and enjoyable world.',
         details: [
@@ -333,7 +398,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 24,
+        number: 27,
         title: 'Do Not Abuse Game Mechanics',
         summary: 'Game mechanics are tools.',
         details: [
@@ -344,12 +409,12 @@ export const RULEBOOK_SECTIONS = [
     ],
   },
   {
-    number: 'VII',
+    number: 'VIII',
     id: 'rp-pacing',
     title: 'RP Pacing',
     rules: [
       {
-        number: 25,
+        number: 28,
         title: 'Let Stories Breathe',
         summary: 'Not every interaction needs to become a major event.',
         details: [
@@ -362,7 +427,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 26,
+        number: 29,
         title: 'Story Over Profit',
         summary: 'If you have to choose between making money and creating a better story, consider the story.',
         details: [
@@ -373,18 +438,18 @@ export const RULEBOOK_SECTIONS = [
     ],
   },
   {
-    number: 'VIII',
+    number: 'IX',
     id: 'ooc-and-community',
     title: 'OOC & Community',
     rules: [
       {
-        number: 27,
+        number: 30,
         title: 'Keep OOC Separate',
         summary: 'OOC information should not influence your character.',
         details: [{ type: 'p', text: 'If you need to discuss a technical or community issue, step outside the RP.' }],
       },
       {
-        number: 28,
+        number: 31,
         title: 'Do Not Weaponize Reports',
         summary: 'Reports should not be used simply because you disliked the outcome of an RP situation.',
         details: [
@@ -396,7 +461,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 29,
+        number: 32,
         title: 'Staff Decisions',
         summary: 'Staff may intervene when a situation is damaging the server or when the rules have been violated.',
         details: [
@@ -404,16 +469,29 @@ export const RULEBOOK_SECTIONS = [
           { type: 'p', text: 'Disagreements can be discussed through the appropriate channels rather than being brought into active RP.' },
         ],
       },
+      {
+        number: 33,
+        title: 'Loopholes & Admin Discretion',
+        summary:
+          'Any irregularities in Roleplay (RP), including exploiting loopholes, abusing game mechanics, or taking advantage of gaps in the rules for personal gain, will be closely monitored, addressed, and penalized by the Admins if such actions cause disruption to the community, its order, or stability.',
+        details: [
+          {
+            type: 'p',
+            text: 'The actions and penalties imposed by the Admins are not limited to those explicitly stated in the rules. Admins reserve the right to take additional disciplinary action when necessary, especially in cases where players exploit loopholes or engage in behavior that undermines fair gameplay and community standards.',
+          },
+          { type: 'p', text: 'These measures are intended to maintain fairness, integrity, order, and stability within the county and our community.' },
+        ],
+      },
     ],
   },
   {
-    number: 'IX',
+    number: 'X',
     id: 'factions',
     title: 'Factions',
     intro: 'This should be a completely separate section from general crime.',
     rules: [
       {
-        number: 30,
+        number: 34,
         title: 'Factions Exist to Create Stories',
         summary: 'Factions are not created simply to become the strongest group on the server.',
         details: [
@@ -422,7 +500,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 31,
+        number: 35,
         title: 'Faction Growth',
         summary: 'Start small. Do not immediately create a massive organization with unlimited influence.',
         details: [
@@ -431,7 +509,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 32,
+        number: 36,
         title: 'Faction Conflict',
         summary: 'Faction conflict should have a reason.',
         details: [
@@ -444,7 +522,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 33,
+        number: 37,
         title: 'Faction Wars Should Have an End',
         summary: 'Conflict should progress toward something.',
         details: [
@@ -454,7 +532,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 34,
+        number: 38,
         title: 'No Faction Monopoly',
         summary: 'No faction should attempt to control every aspect of the server.',
         details: [
@@ -465,7 +543,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 35,
+        number: 39,
         title: 'Faction Membership',
         summary: 'Faction leaders are responsible for the behavior of their organization.',
         details: [{ type: 'p', text: 'Repeated rule violations by members may result in consequences for the faction itself.' }],
@@ -473,13 +551,13 @@ export const RULEBOOK_SECTIONS = [
     ],
   },
   {
-    number: 'X',
+    number: 'XI',
     id: 'crime-rules',
     title: 'Crime Rules',
     intro: 'Crime will have its own rule section because criminal RP can create some of the most important stories in the server.',
     rules: [
       {
-        number: 36,
+        number: 40,
         title: 'Crime Should Create RP',
         summary: 'Crime is not simply a method of making money.',
         details: [
@@ -488,7 +566,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 37,
+        number: 41,
         title: 'Crime Requires Reason',
         summary: 'Criminal activity should have an in-character motivation.',
         details: [
@@ -497,7 +575,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 38,
+        number: 42,
         title: 'Crime Pacing',
         summary: 'Do not continuously rotate between robberies simply because the cooldown has ended.',
         details: [
@@ -510,7 +588,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 39,
+        number: 43,
         title: 'Leave Evidence',
         summary: 'Crime should leave opportunities for investigation.',
         details: [
@@ -524,7 +602,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 40,
+        number: 44,
         title: 'Robbery RP',
         summary: 'Robbery should provide meaningful interaction.',
         details: [
@@ -535,7 +613,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 41,
+        number: 45,
         title: 'Kidnapping',
         summary: 'Kidnapping should create RP for everyone involved.',
         details: [
@@ -544,7 +622,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 42,
+        number: 46,
         title: 'Torture RP',
         summary: 'Torture and extreme violence require appropriate roleplay and player consideration.',
         details: [
@@ -556,7 +634,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 43,
+        number: 47,
         title: 'Body Disposal',
         summary: 'If your character kills someone and attempts to conceal the crime, the act should still leave room for investigation.',
         details: [
@@ -566,12 +644,12 @@ export const RULEBOOK_SECTIONS = [
     ],
   },
   {
-    number: 'XI',
+    number: 'XII',
     id: 'posse-and-group-limits',
     title: 'Posse & Group Limits',
     rules: [
       {
-        number: 44,
+        number: 48,
         title: 'Group Size Matters',
         summary: 'Large groups naturally have an advantage.',
         details: [
@@ -580,7 +658,7 @@ export const RULEBOOK_SECTIONS = [
         ],
       },
       {
-        number: 45,
+        number: 49,
         title: 'No Artificial Numbers',
         summary: 'Do not create or join groups solely to overwhelm another player.',
         details: [
@@ -595,7 +673,7 @@ export const RULEBOOK_SECTIONS = [
 // The closing "no rulebook covers everything" checklist — styled differently from the
 // numbered sections above since it has no rule number of its own.
 export const FRONTIER_STANDARD = {
-  number: 'XII',
+  number: 'XIII',
   id: 'the-frontier-standard',
   title: 'The Frontier Standard',
   intro: 'Our rules can never cover every possible situation. When something happens that is not specifically written here, ask yourself:',

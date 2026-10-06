@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import { useAuth } from '../context/AuthContext'
 import { DISCORD_INVITE_URL } from '../data/socialLinks'
-import DevelopmentBanner from './DevelopmentBanner'
 import UserMenu from './UserMenu'
 
 const NAV_LINKS = [
@@ -54,7 +53,6 @@ function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 animate-fade-in-down border-b border-white/10 bg-black/40 backdrop-blur-md">
-        <DevelopmentBanner />
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <a href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
             <img src={logo} alt="Frontier Roleplay" className="h-10 w-auto" />
@@ -71,7 +69,7 @@ function Navbar() {
             ))}
           </ul>
 
-          {/* Steam sign-in is temporarily disabled — only render this once a session exists. */}
+          {/* Sign-in is temporarily disabled — only render this once a session exists. */}
           {!loading && user && (
             <div className="hidden lg:flex lg:items-center">
               <UserMenu user={user} onLogout={logout} />
@@ -134,7 +132,7 @@ function Navbar() {
             }`}
             style={{ transitionDelay: open ? '600ms' : '0ms' }}
           >
-            {/* Steam sign-in is temporarily disabled — only render this once a session exists. */}
+            {/* Sign-in is temporarily disabled — only render this once a session exists. */}
             {user && (
               <div className="flex flex-col items-center gap-4">
                 <div className="flex items-center gap-3">

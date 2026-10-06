@@ -2,7 +2,7 @@ import townImage from '../assets/thumb-1920-1278679.png'
 import { useReveal } from '../hooks/useReveal'
 
 const STATS = [
-  { value: 'In Dev', label: 'Current Status' },
+  { value: 'Online', label: 'Current Status', color: 'text-green-400' },
   { value: 'PH', label: 'Based & Hosted' },
   { value: 'Active', label: 'Community & Staff' },
 ]
@@ -53,7 +53,7 @@ function Welcome() {
           <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8 text-center sm:text-left">
             {STATS.map((stat) => (
               <div key={stat.label}>
-                <p className="text-2xl font-bold text-amber-400">{stat.value}</p>
+                <p className={`text-2xl font-bold ${stat.color ?? 'text-amber-400'}`}>{stat.value}</p>
                 <p className="mt-1 text-xs uppercase tracking-widest text-slate-400">{stat.label}</p>
               </div>
             ))}
